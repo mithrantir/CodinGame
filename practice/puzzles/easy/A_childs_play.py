@@ -23,7 +23,7 @@ def next_move(x, y, d):
 # for i in range(height):
 #     arena.append([c for c in input()])
 
-f = open('00000test.txt', 'r').read().split('\n')
+f = open('00000.txt', 'r').read().split('\n')
 width, height = [int(c) for c in f[0].split()]
 n = int(f[1])
 arena = []

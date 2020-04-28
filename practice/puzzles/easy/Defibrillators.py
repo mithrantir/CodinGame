@@ -5,7 +5,7 @@ import math
 # the standard input according to the problem statement.
 from typing import List
 
-f = open("00000test.txt", 'r').read(-1).split('\n')
+f = open("00000.txt", 'r').read(-1).split('\n')
 lon_str, lat_str = f[0].split(','), f[1].split(',')
 # lon_str , lat_str = input().split(','), input().split(',')
 

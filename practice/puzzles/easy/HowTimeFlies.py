@@ -36,7 +36,7 @@ def daysToEnd(d, m, y):
     return ndays
 
 
-f = open('00000test.txt', 'r').read().split('\n')
+f = open('00000.txt', 'r').read().split('\n')
 begin = [int(c) for c in f[0].split('.')]
 end = [int(c) for c in f[1].split('.')]
 

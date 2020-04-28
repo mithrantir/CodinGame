@@ -4,7 +4,7 @@ import math
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
 
-f = open('00000test.txt', 'r')
+f = open('00000.txt', 'r')
 
 # CONSOLE: rounds = int(input())
 # CONSOLE: cash = int(input())

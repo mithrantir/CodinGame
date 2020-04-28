@@ -1,7 +1,7 @@
 import sys
 import math
 
-f = open("00000test.txt", "r").read().split('\n')
+f = open("00000.txt", "r").read().split('\n')
 l = int(f[0])
 h = int(f[1])
 t = f[2]
