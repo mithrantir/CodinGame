@@ -4,7 +4,7 @@ import math
 
 def encode(s):
     ls, cipher, step = len(s), "", 1
-    while (len(cipher) < ls):
+    while len(cipher) < ls:
         cipher = cipher + s[:step]
         s = s[step:]
         step += 1
