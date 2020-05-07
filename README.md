@@ -1,1 +1,1 @@
-# GodinGame solutions
+# CodinGame solutions
