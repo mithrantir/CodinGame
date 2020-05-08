@@ -1,43 +1,15 @@
-import sys
-import math
-
-
-# Auto-generated code below aims at helping you parse
-# the standard input according to the problem statement.
-
-def evaluate(exp):
-    br = []
-    for c in exp:
-        if c == '[' or c == '(' or c == '{':
-            br.append(c)
-        elif c == '}':
-            if len(br) > 0 and br[-1] == '{':
-                br.pop()
-            else:
-                return False
-        elif c == ']':
-            if len(br) > 0 and br[-1] == '[':
-                br.pop()
-            else:
-                return False
-        elif c == ')':
-            if len(br) > 0 and br[-1] == '(':
-                br.pop()
-            else:
-                return False
-
-    if len(br) == 0:
-        return True
-    else:
-        return False
-
+open_brackets = {'(', '{', '['}
+match = {'}': '{', ']': '[', ')': '('}
 
 expression = input()
+stack, valid = [], True
+for c in expression:
+    if c in open_brackets:
+        stack.append(c)
+    elif c in match and (len(stack) == 0 or match[c] != stack.pop()):
+        valid = False
+        break
+if valid:
+    valid = len(stack) == 0
 
-# Write an answer using print
-# To debug: print("Debug messages...", file=sys.stderr)
-
-if evaluate(expression):
-    print("true")
-else:
-    print("false")
+print(str(valid).lower())
