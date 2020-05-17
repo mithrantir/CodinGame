@@ -19,47 +19,42 @@ for i in range(h):
 
 expand = True
 while expand:
-    expand = False
     exp_points = {}
     for (tx, ty) in tower:
         tow_exp = []
 
         for i, j in tower[(tx, ty)]:
             if i > 0 and alderaan[i - 1][j] == '.':
-                expand = True
-                tow_exp.append([i-1, j])
-                if (i - 1, j) in exp_points:
-                    exp_points[(i - 1, j)] = '+'
+                tow_exp.append([i - 1, j])
+                if (i - 1, j) in exp_points and exp_points[(i - 1, j)][1] != [tx, ty]:
+                    exp_points[(i - 1, j)] = ['+', [-1, -1]]
                 else:
-                    exp_points[(i - 1, j)] = alderaan[tx][ty]
+                    exp_points[(i - 1, j)] = [alderaan[tx][ty], [tx, ty]]
             if i < h - 1 and alderaan[i + 1][j] == '.':
-                expand = True
                 tow_exp.append([i + 1, j])
-                if (i + 1, j) in exp_points:
-                    exp_points[(i + 1, j)] = '+'
+                if (i + 1, j) in exp_points and exp_points[(i + 1, j)][1] != [tx, ty]:
+                    exp_points[(i + 1, j)] = ['+', [-1, -1]]
                 else:
-                    exp_points[(i + 1, j)] = alderaan[tx][ty]
+                    exp_points[(i + 1, j)] = [alderaan[tx][ty], [tx, ty]]
             if j > 0 and alderaan[i][j - 1] == '.':
-                expand = True
                 tow_exp.append([i, j - 1])
-                if (i, j - 1) in exp_points:
-                    exp_points[(i, j - 1)] = '+'
+                if (i, j - 1) in exp_points and exp_points[(i, j - 1)][1] != [tx, ty]:
+                    exp_points[(i, j - 1)] = ['+', [-1, -1]]
                 else:
-                    exp_points[(i, j - 1)] = alderaan[tx][ty]
+                    exp_points[(i, j - 1)] = [alderaan[tx][ty], [tx, ty]]
             if j < w - 1 and alderaan[i][j + 1] == '.':
-                expand = True
                 tow_exp.append([i, j + 1])
-                if (i, j + 1) in exp_points:
-                    exp_points[(i, j + 1)] = '+'
+                if (i, j + 1) in exp_points and exp_points[(i, j + 1)][1] != [tx, ty]:
+                    exp_points[(i, j + 1)] = ['+', [-1, -1]]
                 else:
-                    exp_points[(i, j + 1)] = alderaan[tx][ty]
+                    exp_points[(i, j + 1)] = [alderaan[tx][ty], [tx, ty]]
         tower[(tx, ty)] = tow_exp
 
     if len(exp_points) == 0:
         expand = False
     else:
         for (i, j) in exp_points:
-            alderaan[i][j] = exp_points[(i, j)]
+            alderaan[i][j] = exp_points[(i, j)][0]
 
 for i in range(h):
     print("".join(c for c in alderaan[i]))
